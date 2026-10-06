@@ -1,0 +1,4 @@
+<x-auth.layout title="Masuk"><h2>Selamat datang.</h2><p class="sub">Masuk untuk membuka pusat informasi AutoCare.</p>
+@if(session('success'))<div class="notice">{{ session('success') }}</div>@endif
+@if($errors->any())<div class="errors">{{ $errors->first() }}</div>@endif
+<form method="POST" action="{{ route('login.perform') }}">@csrf<label>EMAIL</label><input type="email" name="email" value="{{ old('email') }}" required autofocus><label>KATA SANDI</label><input type="password" name="password" required><label style="display:flex;gap:8px;align-items:center;color:#93a0b5;font-weight:normal"><input style="width:auto" type="checkbox" name="remember"> Ingat saya</label><button class="button">MASUK KE SISTEM</button></form><p class="switch">Belum memiliki akun? <a class="link" href="{{ route('register') }}">Buat akun</a></p></x-auth.layout>

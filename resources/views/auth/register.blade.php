@@ -1,0 +1,3 @@
+<x-auth.layout title="Registrasi"><h2>Buat akun.</h2><p class="sub">Mulai kelola informasi kendaraan Anda secara terstruktur.</p>
+@if($errors->any())<div class="errors">{{ $errors->first() }}</div>@endif
+<form method="POST" action="{{ route('register.perform') }}">@csrf<label>NAMA</label><input name="name" value="{{ old('name') }}" required autofocus><label>EMAIL</label><input type="email" name="email" value="{{ old('email') }}" required><label>KATA SANDI</label><input type="password" name="password" required><label>KONFIRMASI KATA SANDI</label><input type="password" name="password_confirmation" required><button class="button">BUAT AKUN</button></form><p class="switch">Sudah punya akun? <a class="link" href="{{ route('login') }}">Masuk</a></p></x-auth.layout>
